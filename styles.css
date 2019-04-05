@@ -17,7 +17,7 @@ h1 {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  margin: 20px 30px;  
+  margin: 20px 30px;
 }
 
 .list #listTodo li {
@@ -35,15 +35,21 @@ h1 {
 }
 
 #txtToDo {
-  height: 40px; 
+  height: 40px;
 }
 
 .check {
- margin: 0  0  0 70px;  
+ margin: 0  0  0 70px;
 }
 
 .form-control {
   font-size: 31px;
+}
+
+.button-theme {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .btn-primary {

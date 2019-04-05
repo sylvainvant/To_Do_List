@@ -6,25 +6,43 @@ let buttonValid = document.getElementById('validToDo');
 let theme = document.getElementById('theme');
 let render = document.getElementById('listTodo');
 
-document.addEventListener('DOMContentLoaded',function(){
+
+document.addEventListener('DOMContentLoaded',function() {
 
   //Add event click button valid
-  buttonValid.addEventListener('click',function(){
+  buttonValid.addEventListener('click',function() {
     addList();
   });
 
   //Add event keypress and verify key is enter
-  document.addEventListener("keypress",function(event){
-    (event.keyCode === 13)?addList():null;
+  document.addEventListener("keypress",function(event) {
+    (event.keyCode === 13)? addList() : null;
   });
+
 });
 
+// theme
+theme.addEventListener("click",function() {
+  themeLight = !themeLight;
+
+    if(themeLight) {
+      document.body.style.backgroundColor = "inherit";
+      document.body.style.color = "#4d4d4d";
+    } else{
+      document.body.style.backgroundColor = "#4d4d4d";
+      document.body.style.color = "white";
+    }
+  })
+
+
+
+
 //Create function for add firstUpperCase
-function firstUpperCase(textTodo){
+function firstUpperCase(textTodo) {
+
   let splitTxt = textTodo.split("");
   splitTxt[0] = splitTxt[0].toUpperCase();
   return splitTxt.join("");
-    //console.log(splitTxt);
   }
 
 //Create function for add new todo
@@ -52,11 +70,13 @@ function addList(){
 //function listener click icon for change status todo
 function eventClickCheck(icone){
   icone.addEventListener("click",function(){
-    icone.className="fas fa-check";
+  icone.className="fas fa-check";
 
-    let id = this.dataset.id;
-    let index = 0;
+  let id = this.dataset.id;
+  let index = 0;
+
     for (let i = 0; i < arrayTodo.length ; i++) {
+
       if(arrayTodo[i].id == id) {
         index = i;
         break;
@@ -69,9 +89,11 @@ function eventClickCheck(icone){
 
 //function listener click icon for remove one todo
 function eventClickDelete(basket) {
+
   basket.addEventListener("click",function(){
     let id = this.dataset.id;
     let index = 0;
+
     for (let i = 0; i < arrayTodo.length ; i++) {
       if(arrayTodo[i].id == id) {
         index = i;
@@ -85,9 +107,11 @@ function eventClickDelete(basket) {
 }
 
 //function loop todo list and call rendering
-function rendering(){
+function rendering() {
+
   let domRendering = document.getElementById("listTodo");
   domRendering.innerHTML = "";
+
   for (let i = 0; i < arrayTodo.length ; i++) {
     renderHtml(arrayTodo[i],domRendering);
   }
@@ -101,6 +125,7 @@ function renderHtml(todo,domRendering) {
   let divContainer = document.createElement('li');
   divContainer.classList.add("list-group-item");
   divContainer.appendChild(document.createTextNode(todo.txt));
+
   let divIcone = document.createElement('span');
   divIcone.classList.add("check");
   let icone = document.createElement('i');
@@ -120,6 +145,7 @@ function renderHtml(todo,domRendering) {
   basket.setAttribute('data-id', todo.id);
   basket.classList.add("fas","fa-trash-alt");
   divbasket.appendChild(basket);
+
   divIcone.appendChild(icone);
   divContainer.appendChild(divIcone);
   divContainer.appendChild(divbasket);
