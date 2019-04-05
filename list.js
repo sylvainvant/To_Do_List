@@ -19,12 +19,14 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 
-  function firstUpperCase(textTodo){
-    let splitTxt = textTodo.split("");
-    splitTxt[0] = splitTxt[0].toUpperCase();
-    return splitTxt.join("");
-    console.log(splitTxt);
+//Create function for add firstUpperCase
+function firstUpperCase(textTodo){
+  let splitTxt = textTodo.split("");
+  splitTxt[0] = splitTxt[0].toUpperCase();
+  return splitTxt.join("");
+    //console.log(splitTxt);
   }
+
 //Create function for add new todo
 function addList(){
   let textTodo = document.getElementById('txtToDo').value;
@@ -39,16 +41,15 @@ function addList(){
   });
   rendering();
 
+  // clear the value of input tag
   textTodo = document.getElementById('txtToDo').value="";
- 
+  //textTodo.value ="";
 
-//textTodo.value ="";
- 
-         
+
 
 }
 
-//listener click icon for change status todo
+//function listener click icon for change status todo
 function eventClickCheck(icone){
   icone.addEventListener("click",function(){
     icone.className="fas fa-check";
@@ -59,13 +60,14 @@ function eventClickCheck(icone){
       if(arrayTodo[i].id == id) {
         index = i;
         break;
-      } 
-    } 
+      }
+    }
     arrayTodo[index].finish = true;
 
   });
 }
 
+//function listener click icon for remove one todo
 function eventClickDelete(basket) {
   basket.addEventListener("click",function(){
     let id = this.dataset.id;
@@ -74,16 +76,15 @@ function eventClickDelete(basket) {
       if(arrayTodo[i].id == id) {
         index = i;
         break;
-      } 
-    } 
-    
+      }
+    }
+
     arrayTodo.splice(index,1);
     rendering();
   })
 }
 
 //function loop todo list and call rendering
-
 function rendering(){
   let domRendering = document.getElementById("listTodo");
   domRendering.innerHTML = "";
@@ -98,7 +99,7 @@ function rendering(){
 function renderHtml(todo,domRendering) {
 
   let divContainer = document.createElement('li');
-  divContainer.classList.add("list-group-item"); 
+  divContainer.classList.add("list-group-item");
   divContainer.appendChild(document.createTextNode(todo.txt));
   let divIcone = document.createElement('span');
   divIcone.classList.add("check");
@@ -121,9 +122,9 @@ function renderHtml(todo,domRendering) {
   divbasket.appendChild(basket);
   divIcone.appendChild(icone);
   divContainer.appendChild(divIcone);
-  divContainer.appendChild(divbasket); 
+  divContainer.appendChild(divbasket);
   domRendering.appendChild(divContainer);
-  
+
   eventClickCheck(icone);
   eventClickDelete(basket);
 }
