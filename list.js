@@ -1,3 +1,5 @@
+'use strict';
+
 let arrayTodo = [];
 let counter = 0;
 let themeLight = true;
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded',function() {
 
 });
 
-// theme
+// add event click icon theme
 theme.addEventListener("click",function() {
   themeLight = !themeLight;
 
