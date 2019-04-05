@@ -1,0 +1,58 @@
+h1 {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-theme {
+  text-align:right;
+  margin: 0 180px 0 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 20px 30px;  
+}
+
+.list #listTodo li {
+  font-size: 30px;
+}
+
+.list #listTodo {
+  flex:2;
+}
+
+.input-group {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 70px 0 0;
+}
+
+#txtToDo {
+  height: 40px; 
+}
+
+.check {
+ margin: 0  0  0 70px;  
+}
+
+.form-control {
+  font-size: 31px;
+}
+
+.btn-primary {
+  font-size: 33px;
+  margin: 0 15px;
+}
+
+.basket {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 100px 0 0;
+}
